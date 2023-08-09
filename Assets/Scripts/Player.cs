@@ -6,7 +6,12 @@ public class Player : MonoBehaviour
 {
     private Rigidbody rb;
     private Touch touch;
-    public int speedModifier;
+    [Range(20,40)] public int speedModifier;
+    public int forwardSpeed;
+    public GameObject cam;
+    public GameObject vectorback;
+    public GameObject vectorforward;
+   
 
     public void Start()
     {
@@ -14,11 +19,30 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
+        if (Variables.firsttouch == 1)
+        {
+            transform.position += new Vector3(0, 0, forwardSpeed*Time.deltaTime);
+            cam.transform.position += new Vector3(0, 0, forwardSpeed * Time.deltaTime);
+            vectorback.transform.position += new Vector3(0, 0, forwardSpeed * Time.deltaTime);
+            vectorforward.transform.position += new Vector3(0, 0, forwardSpeed * Time.deltaTime);
+        }
+
+
+
+
+
+
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Moved)
+        if (touch.phase == TouchPhase.Began)
+            {
+                Variables.firsttouch = 1;
+            }
+
+
+        else if (touch.phase == TouchPhase.Moved)
             {
                 rb.velocity = new Vector3(touch.deltaPosition.x * speedModifier * Time.deltaTime,
                                           transform.position.y,
