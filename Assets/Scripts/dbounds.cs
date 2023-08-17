@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bounds : MonoBehaviour
+public class dbounds : MonoBehaviour
 {
     public Transform vectorback;
     public Transform vectorforward;
