@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public cameraShake camerashake;
+    public UIManager uimanager;
     private Rigidbody rb;
     private Touch touch;
     [Range(20,40)] public int speedModifier;
@@ -66,6 +67,7 @@ public class Player : MonoBehaviour
         if (hit.gameObject.CompareTag("Obstacles"))
         {
             camerashake.CameraShakesCall();
+            uimanager.StartCoroutine("WhiteEffect");
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
             foreach (GameObject item in FractureItems)
             {
