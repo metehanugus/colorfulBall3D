@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public cameraShake camerashake;
     private Rigidbody rb;
     private Touch touch;
     [Range(20,40)] public int speedModifier;
@@ -56,5 +57,21 @@ public class Player : MonoBehaviour
         }
 
         
+    }
+
+    public GameObject[] FractureItems;
+
+    public void OnCollisionEnter(Collision hit)
+    {
+        if (hit.gameObject.CompareTag("Obstacles"))
+        {
+            camerashake.CameraShakesCall();
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            foreach (GameObject item in FractureItems)
+            {
+                item.GetComponent<SphereCollider>().enabled = true;
+                item.GetComponent<Rigidbody>().isKinematic = false;
+            }
+        }
     }
 }
