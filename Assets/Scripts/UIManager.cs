@@ -7,9 +7,21 @@ public class UIManager : MonoBehaviour
 {
     public Image whiteeffectimage;
     private int effectcontrol = 0;
-
-
     public Animator LayoutAnimator;
+
+    public void Start()
+    {
+        if (PlayerPrefs.HasKey("Sound") == false)
+        {
+            PlayerPrefs.SetInt("Sound", 1);
+        }
+
+        if (PlayerPrefs.HasKey("Vibration") == false)
+        {
+            PlayerPrefs.SetInt("Vibration", 1);
+        }
+    }
+
 
     //Butonlar
     public GameObject settings_open;
@@ -21,6 +33,16 @@ public class UIManager : MonoBehaviour
     public GameObject iap;
     public GameObject information;
 
+    public void Privacy_Policy()
+    {
+        Application.OpenURL("https://metehanugus.com/iletisim");
+    }
+
+    public void TermsOfUse()
+    {
+        Application.OpenURL("https://metehanugus.com");
+    }
+
     //Buton Fonksiyonlari
 
     public void Settings_Open()
@@ -28,6 +50,31 @@ public class UIManager : MonoBehaviour
         settings_open.SetActive(false);
         settings_close.SetActive(true);
         LayoutAnimator.SetTrigger("slide_in");
+
+        if (PlayerPrefs.GetInt("Sound",1) == 1)
+        {
+            sound_off.SetActive(false);
+            sound_on.SetActive(true);
+            AudioListener.volume = 1;
+        }
+        else if (PlayerPrefs.GetInt("Sound") == 2)
+        {
+            sound_on.SetActive(false);
+            sound_off.SetActive(true) ;
+            AudioListener.volume = 0;
+        }
+
+        if (PlayerPrefs.GetInt("Vibration") == 1)
+        {
+            vibration_off.SetActive(false);
+            vibration_on.SetActive(true);
+        }
+
+        else if (PlayerPrefs.GetInt("Vibration") == 2)
+        {
+            vibration_off.SetActive(true);
+            vibration_on.SetActive(false);
+        }
     }
 
     public void Settings_Close()
@@ -41,24 +88,30 @@ public class UIManager : MonoBehaviour
     {
         sound_on.SetActive(false);
         sound_off.SetActive(true);
+        AudioListener.volume = 0f;
+        PlayerPrefs.SetInt("Sound", 2);
     }
 
     public void Sound_Off()
     {
         sound_off.SetActive(false);
         sound_on.SetActive(true);
+        AudioListener.volume = 1f;
+        PlayerPrefs.SetInt("Sound", 1);
     }
 
     public void Vibration_On ()
     {
         vibration_on.SetActive(false);
         vibration_off.SetActive(true);
+        PlayerPrefs.SetInt("Vibration", 2);
     }
 
     public void Vibration_Off ()
     {
         vibration_off.SetActive(false);
         vibration_on.SetActive(true) ;
+        PlayerPrefs.SetInt("Vibration", 1);
     }
 
 
