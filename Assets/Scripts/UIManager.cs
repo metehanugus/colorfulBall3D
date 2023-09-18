@@ -32,6 +32,26 @@ public class UIManager : MonoBehaviour
     public GameObject vibration_off;
     public GameObject iap;
     public GameObject information;
+    public GameObject intro_hand;
+    public GameObject taptomove;
+    public GameObject noAds;
+    public GameObject shop_button;
+
+    public void FirstTouch()
+    {
+      intro_hand.SetActive(false);
+      taptomove.SetActive(false);
+      noAds.SetActive(false);
+      shop_button.SetActive(false);
+      settings_open.SetActive(false);
+      settings_close.SetActive(false);
+      sound_on.SetActive(false);
+      sound_off.SetActive(false);
+      vibration_on.SetActive(false);
+      vibration_off.SetActive(false);
+      iap.SetActive(false);
+      information.SetActive(false);
+}
 
     public void Privacy_Policy()
     {

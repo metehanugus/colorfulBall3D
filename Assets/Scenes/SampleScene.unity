@@ -4509,7 +4509,7 @@ GameObject:
   - component: {fileID: 555133403}
   - component: {fileID: 555133405}
   m_Layer: 0
-  m_Name: easy-use_2
+  m_Name: intro_hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5864,6 +5864,10 @@ MonoBehaviour:
   vibration_off: {fileID: 834979820}
   iap: {fileID: 528250351}
   information: {fileID: 1762282608}
+  intro_hand: {fileID: 555133402}
+  taptomove: {fileID: 1810059516}
+  noAds: {fileID: 302125037}
+  shop_button: {fileID: 1977053086}
 --- !u!1 &732037135
 GameObject:
   m_ObjectHideFlags: 0
@@ -12108,6 +12112,7 @@ GameObject:
   - component: {fileID: 1810059519}
   - component: {fileID: 1810059518}
   - component: {fileID: 1810059517}
+  - component: {fileID: 1810059521}
   m_Layer: 0
   m_Name: taptomove
   m_TagString: Untagged
@@ -12283,6 +12288,27 @@ RectTransform:
   m_AnchoredPosition: {x: -1.5, y: 2}
   m_SizeDelta: {x: 5.9636, y: 1.4909}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1810059521
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810059516}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 196cf9d084963c0469df784eb77b4e56, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1817196589
 PrefabInstance:
   m_ObjectHideFlags: 0

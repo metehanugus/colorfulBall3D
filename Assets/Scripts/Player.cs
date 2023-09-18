@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
         if (touch.phase == TouchPhase.Began)
             {
                 Variables.firsttouch = 1;
+                uimanager.FirstTouch();
             }
 
 
